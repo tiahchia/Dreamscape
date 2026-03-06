@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DREAMSCAPE | Kawaii Digital Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --candy-pink: #ff9ecd;
+            --candy-blue: #a8e6cf;
+            --candy-purple: #d4a5ff;
+            --candy-yellow: #ffd93d;
+            --candy-coral: #ff8b94;
+            --candy-mint: #c7f0db;
+            --glass-white: rgba(255, 255, 255, 0.25);
+            --glass-border: rgba(255, 255, 255, 0.4);
+        }
+
+        * {
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffeef8 0%, #e6f3ff 25%, #f0e6ff 50%, #fff5e6 75%, #ffe6f0 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            color: #4a4a6a;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating Shapes Background */
+        .floating-shape {
+            position: fixed;
+            border-radius: 50%;
+            opacity: 0.6;
+            filter: blur(40px);
+            z-index: -1;
+            animation: floatShape 20s infinite ease-in-out;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--candy-pink);
+            top: 10%;
+            left: -5%;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 250px;
+            height: 250px;
+            background: var(--candy-blue);
+            top: 60%;
+            right: -5%;
+            animation-delay: -5s;
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        }
+
+        .shape-3 {
+            width: 200px;
+            height: 200px;
+            background: var(--candy-purple);
+            bottom: 10%;
+            left: 20%;
+            animation-delay: -10s;
+        }
+
+        .shape-4 {
+            width: 180px;
+            height: 180px;
+            background: var(--candy-yellow);
+            top: 30%;
+            right: 20%;
+            animation-delay: -15s;
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+
+        @keyframes floatShape {
+            0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            25% { transform: translate(30px, -30px) rotate(90deg) scale(1.1); }
+            50% { transform: translate(-20px, 20px) rotate(180deg) scale(0.9); }
+            75% { transform: translate(20px, 30px) rotate(270deg) scale(1.05); }
+        }
+
+        /* Glass Morphism */
+        .glass {
+            background: var(--glass-white);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+        }
+
+        .glass-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.3) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.5);
+            box-shadow: 
+                0 8px 32px 0 rgba(31, 38, 135, 0.1),
+                inset 0 1px 0 rgba(255,255,255,0.6);
+        }
+
+        /* Soft Shadows */
+        .soft-shadow {
+            box-shadow: 
+                0 10px 40px -10px rgba(255, 158, 205, 0.3),
+                0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .soft-shadow-blue {
+            box-shadow: 
+                0 10px 40px -10px rgba(168, 230, 207, 0.4),
+                0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .soft-shadow-purple {
+            box-shadow: 
+                0 10px 40px -10px rgba(212, 165, 255, 0.4),
+                0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Animations */
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .float-gentle {
+            animation: gentleFloat 4s ease-in-out infinite;
+        }
+
+        .float-gentle-delay-1 { animation-delay: 0.5s; }
+        .float-gentle-delay-2 { animation-delay: 1s; }
+        .float-gentle-delay-3 { animation-delay: 1.5s; }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        }
+
+        .wiggle:hover {
+            animation: wiggle 0.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse-soft {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.9; }
+        }
+
+        .pulse-soft {
+            animation: pulse-soft 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 238, 248, 0.5);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--candy-pink), var(--candy-purple));
+            border-radius: 6px;
+            border: 3px solid transparent;
+            background-clip: content-box;
+        }
+
+        /* Button Styles */
+        .btn-candy {
+            background: linear-gradient(135deg, var(--candy-pink) 0%, var(--candy-coral) 100%);
+            border: none;
+            color: white;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 158, 205, 0.4);
+        }
+
+        .btn-candy:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(255, 158, 205, 0.5);
+        }
+
+        .btn-mint {
+            background: linear-gradient(135deg, var(--candy-mint) 0%, var(--candy-blue) 100%);
+            border: none;
+            color: #4a4a6a;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(168, 230, 207, 0.4);
+        }
+
+        .btn-mint:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(168, 230, 207, 0.5);
+        }
+
+        /* Card Hover Effects */
+        .hover-lift {
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-10px) rotate(1deg);
+        }
+
+        /* Text Gradients */
+        .text-gradient-pink {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .text-gradient-blue {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .text-gradient-purple {
+            background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Blob Shapes */
+        .blob {
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            animation: morphBlob 8s ease-in-out infinite;
+        }
+
+        @keyframes morphBlob {
+            0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+            25% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
+            50% { border-radius: 50% 60% 30% 60% / 50% 60% 40% 50%; }
+            75% { border-radius: 60% 40% 60% 40% / 60% 40% 60% 40%; }
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stagger Items */
+        .stagger-item {
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .stagger-item.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Interactive Cursor Trail */
+        .cursor-trail {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s;
+        }
+
+        /* Loading Animation */
+        .loading-dots span {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin: 0 3px;
+            animation: loadingBounce 1.4s infinite ease-in-out both;
+        }
+
+        .loading-dots span:nth-child(1) {
+            background: var(--candy-pink);
+            animation-delay: -0.32s;
+        }
+
+        .loading-dots span:nth-child(2) {
+            background: var(--candy-blue);
+            animation-delay: -0.16s;
+        }
+
+        .loading-dots span:nth-child(3) {
+            background: var(--candy-purple);
+            animation-delay: 0s;
+        }
+
+        @keyframes loadingBounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+
+        /* Confetti Animation */
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            top: -10px;
+            animation: confetti-fall 3s linear forwards;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Background Shapes -->
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
+    <div class="floating-shape shape-4"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 px-4 py-4">
+        <div class="max-w-6xl mx-auto glass rounded-full px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-pink-300 to-purple-300 flex items-center justify-center soft-shadow float-gentle">
+                    <span class="text-xl">🌸</span>
+                </div>
+                <span class="text-xl font-bold text-gradient-pink">Dreamscape</span>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-6">
+                <a href="#worlds" class="text-sm font-semibold text-gray-600 hover:text-pink-500 transition-colors">Worlds</a>
+                <a href="#characters" class="text-sm font-semibold text-gray-600 hover:text-blue-500 transition-colors">Characters</a>
+                <a href="#collections" class="text-sm font-semibold text-gray-600 hover:text-purple-500 transition-colors">Collections</a>
+                <button class="btn-candy px-6 py-2 rounded-full text-sm" onclick="showToast('Welcome to Dreamscape! ✨')">
+                    Start Journey
+                </button>
+            </div>
+            
+            <button class="md:hidden text-2xl" onclick="toggleMobileMenu()">☁️</button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white/95 backdrop-blur-xl z-40 hidden flex-col items-center justify-center gap-8 transition-all">
+        <button class="absolute top-6 right-6 text-3xl" onclick="toggleMobileMenu()">✕</button>
+        <a href="#worlds" class="text-2xl font-bold text-pink-400" onclick="toggleMobileMenu()">Worlds</a>
+        <a href="#characters" class="text-2xl font-bold text-blue-400" onclick="toggleMobileMenu()">Characters</a>
+        <a href="#collections" class="text-2xl font-bold text-purple-400" onclick="toggleMobileMenu()">Collections</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center px-6 pt-20 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <div class="inline-block mb-6 px-4 py-2 rounded-full glass text-sm font-semibold text-pink-600 float-gentle">
+                ✨ Where Dreams Come to Life
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                <span class="block text-gradient-pink">Explore</span>
+                <span class="block text-gradient-blue">Imagination</span>
+                <span class="block text-4xl md:text-6xl mt-2 text-gray-600">Without Limits</span>
+            </h1>
+            
+            <p class="text-lg text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Step into a world where creativity knows no bounds. Discover magical realms, 
+                befriend adorable companions, and collect treasures that sparkle with wonder.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+                <button class="btn-candy px-8 py-4 rounded-2xl text-lg flex items-center gap-2 group" onclick="createConfetti()">
+                    <span>Begin Adventure</span>
+                    <span class="group-hover:rotate-12 transition-transform">🎀</span>
+                </button>
+                <button class="btn-mint px-8 py-4 rounded-2xl text-lg flex items-center gap-2">
+                    <span>Watch Trailer</span>
+                    <span>▶️</span>
+                </button>
+            </div>
+            
+            <!-- Floating Cards -->
+            <div class="grid grid-cols-3 gap-4 max-w-lg mx-auto">
+                <div class="glass-card rounded-2xl p-4 float-gentle soft-shadow">
+                    <div class="text-3xl mb-2">🏰</div>
+                    <div class="text-xs font-bold text-gray-600">12 Realms</div>
+                </div>
+                <div class="glass-card rounded-2xl p-4 float-gentle float-gentle-delay-1 soft-shadow-blue">
+                    <div class="text-3xl mb-2">🦄</div>
+                    <div class="text-xs font-bold text-gray-600">50+ Friends</div>
+                </div>
+                <div class="glass-card rounded-2xl p-4 float-gentle float-gentle-delay-2 soft-shadow-purple">
+                    <div class="text-3xl mb-2">💎</div>
+                    <div class="text-xs font-bold text-gray-600">1000 Items</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decorative Elements -->
+        <div class="absolute top-1/4 left-10 text-4xl float-gentle opacity-60 hidden lg:block">☁️</div>
+        <div class="absolute bottom-1/4 right-10 text-4xl float-gentle float-gentle-delay-2 opacity-60 hidden lg:block">🌙</div>
+        <div class="absolute top-1/3 right-1/4 text-3xl float-gentle float-gentle-delay-1 opacity-40 hidden lg:block">⭐</div>
+    </section>
+
+    <!-- Worlds Section -->
+    <section id="worlds" class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gradient-purple">Magical Worlds</h2>
+                <p class="text-gray-600">Each realm holds its own secrets and surprises</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- World 1 -->
+                <div class="stagger-item glass-card rounded-3xl overflow-hidden hover-lift cursor-pointer group">
+                    <div class="h-48 bg-gradient-to-br from-pink-200 to-pink-300 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center text-6xl group-hover:scale-110 transition-transform duration-500">
+                            🌸
+                        </div>
+                        <div class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/50 flex items-center justify-center text-lg">
+                            🔒
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-pink-600">Sakura Gardens</h3>
+                        <p class="text-sm text-gray-600 mb-4">Where cherry blossoms dance forever and tea parties never end.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs bg-pink-100 text-pink-600 px-3 py-1 rounded-full">Popular</span>
+                            <button class="text-pink-500 hover:scale-110 transition-transform">→</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- World 2 -->
+                <div class="stagger-item glass-card rounded-3xl overflow-hidden hover-lift cursor-pointer group" style="transition-delay: 0.1s">
+                    <div class="h-48 bg-gradient-to-br from-blue-200 to-cyan-200 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center text-6xl group-hover:scale-110 transition-transform duration-500">
+                            🌊
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-blue-600">Azure Depths</h3>
+                        <p class="text-sm text-gray-600 mb-4">Dive into crystal waters where mermaids sing and pearls glow.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs bg-blue-100 text-blue-600 px-3 py-1 rounded-full">New</span>
+                            <button class="text-blue-500 hover:scale-110 transition-transform">→</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- World 3 -->
+                <div class="stagger-item glass-card rounded-3xl overflow-hidden hover-lift cursor-pointer group" style="transition-delay: 0.2s">
+                    <div class="h-48 bg-gradient-to-br from-purple-200 to-pink-200 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center text-6xl group-hover:scale-110 transition-transform duration-500">
+                            🌙
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-purple-600">Lunar Peaks</h3>
+                        <p class="text-sm text-gray-600 mb-4">Mountain tops that touch the stars and dreams take flight.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs bg-purple-100 text-purple-600 px-3 py-1 rounded-full">Rare</span>
+                            <button class="text-purple-500 hover:scale-110 transition-transform">→</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Characters Section -->
+    <section id="characters" class="py-24 px-6 relative">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-pink-50/50 to-transparent"></div>
+        <div class="max-w-6xl mx-auto relative">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gradient-blue">Meet Your Companions</h2>
+                <p class="text-gray-600">Adorable friends to join your journey</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Character 1 -->
+                <div class="stagger-item text-center group cursor-pointer" onclick="wiggleCharacter(this)">
+                    <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-gradient-to-br from-pink-200 to-pink-300 soft-shadow flex items-center justify-center text-5xl relative overflow-hidden">
+                        <div class="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <span class="relative z-10">🐰</span>
+                    </div>
+                    <h3 class="font-bold text-gray-700">Bunbun</h3>
+                    <p class="text-xs text-gray-500">The Curious</p>
+                </div>
+                
+                <!-- Character 2 -->
+                <div class="stagger-item text-center group cursor-pointer" onclick="wiggleCharacter(this)" style="transition-delay: 0.1s">
+                    <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-200 to-blue-300 soft-shadow-blue flex items-center justify-center text-5xl relative overflow-hidden">
+                        <div class="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <span class="relative z-10">🐱</span>
+                    </div>
+                    <h3 class="font-bold text-gray-700">Mochi</h3>
+                    <p class="text-xs text-gray-500">The Sleepy</p>
+                </div>
+                
+                <!-- Character 3 -->
+                <div class="stagger-item text-center group cursor-pointer" onclick="wiggleCharacter(this)" style="transition-delay: 0.2s">
+                    <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-gradient-to-br from-purple-200 to-purple-300 soft-shadow-purple flex items-center justify-center text-5xl relative overflow-hidden">
+                        <div class="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <span class="relative z-10">🦊</span>
+                    </div>
+                    <h3 class="font-bold text-gray-700">Kitsu</h3>
+                    <p class="text-xs text-gray-500">The Clever</p>
+                </div>
+                
+                <!-- Character 4 -->
+                <div class="stagger-item text-center group cursor-pointer" onclick="wiggleCharacter(this)" style="transition-delay: 0.3s">
+                    <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-gradient-to-br from-yellow-200 to-orange-200 soft-shadow flex items-center justify-center text-5xl relative overflow-hidden">
+                        <div class="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <span class="relative z-10">🐻</span>
+                    </div>
+                    <h3 class="font-bold text-gray-700">Honey</h3>
+                    <p class="text-xs text-gray-500">The Sweet</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Feature -->
+    <section class="py-24 px-6">
+        <div class="max-w-4xl mx-auto glass rounded-3xl p-8 md:p-12 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-pink-300 via-purple-300 to-blue-300"></div>
+            
+            <div class="text-center mb-8">
+                <h3 class="text-2xl font-bold mb-2">Daily Fortune</h3>
+                <p class="text-gray-600 text-sm">Click the crystal ball to reveal your lucky charm</p>
+            </div>
+            
+            <div class="flex justify-center">
+                <button id="fortune-btn" class="w-40 h-40 rounded-full bg-gradient-to-br from-purple-300 to-pink-300 soft-shadow-purple flex items-center justify-center text-6xl pulse-soft hover:scale-110 transition-transform" onclick="revealFortune()">
+                    🔮
+                </button>
+            </div>
+            
+            <div id="fortune-result" class="mt-8 text-center hidden">
+                <div class="text-4xl mb-2" id="fortune-emoji">✨</div>
+                <p class="text-lg font-bold text-purple-600" id="fortune-text">Your fortune appears here</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collections -->
+    <section id="collections" class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 reveal">
+                <div>
+                    <h2 class="text-4xl font-bold mb-2 text-gradient-pink">Treasure Collection</h2>
+                    <p class="text-gray-600">Rare items waiting to be discovered</p>
+                </div>
+                <button class="mt-4 md:mt-0 text-sm text-pink-500 font-semibold hover:underline">View All →</button>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <!-- Item 1 -->
+                <div class="stagger-item aspect-square rounded-2xl glass-card flex items-center justify-center text-4xl hover:scale-105 transition-transform cursor-pointer relative group">
+                    <span class="group-hover:animate-bounce">💎</span>
+                    <div class="absolute bottom-2 left-2 right-2 glass rounded-lg p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <p class="text-xs font-bold text-center">Star Gem</p>
+                    </div>
+                </div>
+                
+                <!-- Item 2 -->
+                <div class="stagger-item aspect-square rounded-2xl glass-card flex items-center justify-center text-4xl hover:scale-105 transition-transform cursor-pointer relative group" style="transition-delay: 0.05s">
+                    <span class="group-hover:animate-bounce">🗝️</span>
+                    <div class="absolute bottom-2 left-2 right-2 glass rounded-lg p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <p class="text-xs font-bold text-center">Moon Key</p>
+                    </div>
+                </div>
+                
+                <!-- Item 3 -->
+                <div class="stagger-item aspect-square rounded-2xl glass-card flex items-center justify-center text-4xl hover:scale-105 transition-transform cursor-pointer relative group" style="transition-delay: 0.1s">
+                    <span class="group-hover:animate-bounce">🎀</span>
+                    <div class="absolute bottom-2 left-2 right-2 glass rounded-lg p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <p class="text-xs font-bold text-center">Silk Ribbon</p>
+                    </div>
+                </div>
+                
+                <!-- Item 4 -->
+                <div class="stagger-item aspect-square rounded-2xl glass-card flex items-center justify-center text-4xl hover:scale-105 transition-transform cursor-pointer relative group" style="transition-delay: 0.15s">
+                    <span class="group-hover:animate-bounce">🌟</span>
+                    <div class="absolute bottom-2 left-2 right-2 glass rounded-lg p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <p class="text-xs font-bold text-center">Wishing Star</p>
+                    </div>
+                </div>
+                
+                <!-- Item 5 -->
+                <div class="stagger-item aspect-square rounded-2xl glass-card flex items-center justify-center text-4xl hover:scale-105 transition-transform cursor-pointer relative group" style="transition-delay: 0.2s">
+                    <span class="group-hover:animate-bounce">🍄</span>
+                    <div class="absolute bottom-2 left-2 right-2 glass rounded-lg p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <p class="text-xs font-bold text-center">Fairy Ring</p>
+                    </div>
+                </div>
+                
+                <!-- Item 6 -->
+                <div class="stagger-item aspect-square rounded-2xl glass-card flex items-center justify-center text-4xl hover:scale-105 transition-transform cursor-pointer relative group" style="transition-delay: 0.25s">
+                    <span class="group-hover:animate-bounce">🕯️</span>
+                    <div class="absolute bottom-2 left-2 right-2 glass rounded-lg p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <p class="text-xs font-bold text-center">Eternal Flame</p>
+                    </div>
+                </div>
+                
+                <!-- Item 7 -->
+                <div class="stagger-item aspect-square rounded-2xl glass-card flex items-center justify-center text-4xl hover:scale-105 transition-transform cursor-pointer relative group" style="transition-delay: 0.3s">
+                    <span class="group-hover:animate-bounce">📜</span>
+                    <div class="absolute bottom-2 left-2 right-2 glass rounded-lg p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <p class="text-xs font-bold text-center">Ancient Map</p>
+                    </div>
+                </div>
+                
+                <!-- Item 8 -->
+                <div class="stagger-item aspect-square rounded-2xl glass-card flex items-center justify-center text-4xl hover:scale-105 transition-transform cursor-pointer relative group" style="transition-delay: 0.35s">
+                    <span class="group-hover:animate-bounce">🎭</span>
+                    <div class="absolute bottom-2 left-2 right-2 glass rounded-lg p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <p class="text-xs font-bold text-center">Mystery Mask</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-24 px-6">
+        <div class="max-w-2xl mx-auto text-center reveal">
+            <div class="glass rounded-3xl p-8 md:p-12 soft-shadow">
+                <div class="text-4xl mb-4">💌</div>
+                <h3 class="text-2xl font-bold mb-4">Join the Dream Circle</h3>
+                <p class="text-gray-600 mb-6 text-sm">Receive weekly tales from the realms and exclusive collector items</p>
+                
+                <form class="flex flex-col sm:flex-row gap-3" onsubmit="event.preventDefault(); showToast('Welcome to the circle! 🌸'); createConfetti();">
+                    <input type="email" placeholder="your@dream.com" class="flex-1 px-6 py-3 rounded-full bg-white/50 border border-white/50 focus:border-pink-300 focus:outline-none text-gray-700 placeholder-gray-400">
+                    <button type="submit" class="btn-candy px-8 py-3 rounded-full whitespace-nowrap">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-white/20">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-pink-300 to-purple-300 flex items-center justify-center">
+                    <span class="text-sm">🌸</span>
+                </div>
+                <span class="font-bold text-gray-700">Dreamscape</span>
+            </div>
+            
+            <div class="text-gray-500 text-sm">
+                Crafted with love and stardust ✨
+            </div>
+            
+            <div class="flex gap-3">
+                <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-pink-100 transition-colors text-lg">🐦</a>
+                <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-blue-100 transition-colors text-lg">📸</a>
+                <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-purple-100 transition-colors text-lg">💬</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 glass-card px-6 py-4 rounded-2xl transform translate-y-20 opacity-0 transition-all duration-500 z-50 flex items-center gap-3 soft-shadow">
+        <span class="text-2xl">✨</span>
+        <span id="toast-text" class="font-semibold text-gray-700"></span>
+    </div>
+
+    <script>
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            initScrollReveal();
+            initStaggerAnimation();
+            createFloatingElements();
+        });
+
+        // Scroll Reveal
+        function initScrollReveal() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        }
+
+        // Stagger Animation
+        function initStaggerAnimation() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.querySelectorAll('.stagger-item').forEach((el, i) => {
+                            setTimeout(() => el.classList.add('show'), i * 80);
+                        });
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.grid').forEach(el => observer.observe(el));
+        }
+
+        // Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+        }
+
+        // Character Wiggle
+        function wiggleCharacter(element) {
+            element.classList.add('wiggle');
+            setTimeout(() => element.classList.remove('wiggle'), 500);
+            createConfetti(element.getBoundingClientRect());
+        }
+
+        // Fortune Teller
+        const fortunes = [
+            { emoji: '🌸', text: 'A beautiful surprise awaits you today!' },
+            { emoji: '⭐', text: 'Your dreams are closer than they appear.' },
+            { emoji: '🌈', text: 'Good fortune follows the kind-hearted.' },
+            { emoji: '🦋', text: 'Transformation brings unexpected joy.' },
+            { emoji: '💎', text: 'You will discover something precious soon.' },
+            { emoji: '🍀', text: 'Luck is on your side this week!' }
+        ];
+
+        function revealFortune() {
+            const btn = document.getElementById('fortune-btn');
+            const result = document.getElementById('fortune-result');
+            const emoji = document.getElementById('fortune-emoji');
+            const text = document.getElementById('fortune-text');
+            
+            btn.style.transform = 'scale(0.9)';
+            setTimeout(() => btn.style.transform = 'scale(1)', 150);
+            
+            const fortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+            emoji.textContent = fortune.emoji;
+            text.textContent = fortune.text;
+            
+            result.classList.remove('hidden');
+            result.classList.add('float-gentle');
+            createConfetti(btn.getBoundingClientRect());
+        }
+
+        // Toast Notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastText = document.getElementById('toast-text');
+            toastText.textContent = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Confetti Effect
+        function createConfetti(rect) {
+            const colors = ['#ff9ecd', '#a8e6cf', '#d4a5ff', '#ffd93d', '#ff8b94'];
+            const centerX = rect ? rect.left + rect.width / 2 : window.innerWidth / 2;
+            const centerY = rect ? rect.top + rect.height / 2 : window.innerHeight / 2;
+            
+            for (let i = 0; i < 30; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = centerX + (Math.random() - 0.5) * 100 + 'px';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                confetti.style.animationDelay = (Math.random() * 0.5) + 's';
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => confetti.remove(), 4000);
+            }
+        }
+
+        // Floating Elements Creator
+        function createFloatingElements() {
+            const emojis = ['✨', '⭐', '🌸', '💫', '🎀'];
+            setInterval(() => {
+                if (document.hidden) return;
+                
+                const el = document.createElement('div');
+                el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                el.style.position = 'fixed';
+                el.style.left = Math.random() * window.innerWidth + 'px';
+                el.style.top = window.innerHeight + 'px';
+                el.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                el.style.opacity = '0.6';
+                el.style.pointerEvents = 'none';
+                el.style.zIndex = '0';
+                el.style.animation = 'floatUp 10s linear forwards';
+                el.style.filter = 'drop-shadow(0 0 10px rgba(255,255,255,0.8))';
+                
+                document.body.appendChild(el);
+                setTimeout(() => el.remove(), 10000);
+            }, 3000);
+        }
+
+        // Add floatUp animation dynamically
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes floatUp {
+                0% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+                100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Easter Egg: Click anywhere rapidly for surprise
+        let clickCount = 0;
+        let clickTimer;
+        document.addEventListener('click', () => {
+            clickCount++;
+            clearTimeout(clickTimer);
+            clickTimer = setTimeout(() => clickCount = 0, 500);
+            
+            if (clickCount >= 5) {
+                showToast('You found the secret! 🎉');
+                createConfetti();
+                clickCount = 0;
+            }
+        });
+    </script>
+</body>
+</html>
